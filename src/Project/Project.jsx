@@ -13,7 +13,7 @@ export default class ProjectPage extends Page {
    * @return {String} URL.
    */
   getUrl() {
-    return '/content/projects.json';
+    return 'content/projects.json';
   }
 
   /**

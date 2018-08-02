@@ -13,7 +13,7 @@ export default class ContactsPage extends Page {
    * @return {String} URL.
    */
   getUrl() {
-    return '/content/contacts.json';
+    return 'content/contacts.json';
   }
 
   /**

@@ -13,7 +13,7 @@ export default class HomePage extends Page {
    * @return {String} URL.
    */
   getUrl() {
-    return '/content/home.json';
+    return 'content/home.json';
   }
 
   /**

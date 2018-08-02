@@ -3,19 +3,19 @@
     "id": "ashanina",
     "name": "Персональный сайт фотографа А. Шаниной",
     "link": "http://ashanina.ru/",
-    "image": "/res/projects/ashanina.png",
+    "image": "res/projects/ashanina.png",
     "text": "Небольшой, но симпатичный сайт. Над ним было весьма приятно работать."
   }, {
     "id": "colors",
     "name": "Школа макияжа \"Краски\"",
     "link": "http://kraskipro.com/",
-    "image": "/res/projects/colors.png",
+    "image": "res/projects/colors.png",
     "text": "Не менее симпатичный сайт школы макияжа. И почему для собратьев по визуальному искусству дизайнеры стараются лучше?"
   }, {
     "id": "selt",
     "name": "ООО \"Системы электронных торгов\"",
     "link": "http://bankruptcy.selt-online.ru/",
-    "image": "/res/projects/selt.png",
+    "image": "res/projects/selt.png",
     "text": "Мой дипломный проект. Как же давно это было..."
   }
 ]

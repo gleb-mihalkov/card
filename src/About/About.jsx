@@ -13,7 +13,7 @@ export default class AboutPage extends Page {
    * @return {String} URL.
    */
   getUrl() {
-    return '/content/about.json';
+    return 'content/about.json';
   }
 
   /**
