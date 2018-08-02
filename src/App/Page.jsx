@@ -94,12 +94,11 @@ export default class PageContainer extends React.Component {
     }
 
     let time = Config.minRequestTime;
-    let models = null;
 
     let timeout = new Promise(cb => setTimeout(cb, time));
 
     let request = Axios.get(url).then(response => {
-      models = response.data;
+      let models = response.data;
 
       delete(self.promise);
 
@@ -108,7 +107,7 @@ export default class PageContainer extends React.Component {
     });
 
     return self.promise = Promise.all([request, timeout])
-      .then(() => models);
+      .then(() => self.models);
   }
 
   /**
