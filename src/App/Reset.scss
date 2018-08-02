@@ -47,3 +47,21 @@ button {
   cursor: pointer;
   color: inherit;
 }
+
+#github {
+  position: absolute;
+  z-index: 9000;
+  bottom: $textHeight;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  opacity: .5;
+
+  a {
+    color: $colorLightGray;
+
+    &:hover {
+      color: $colorWhite;
+    }
+  }
+}
