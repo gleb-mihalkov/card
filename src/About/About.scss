@@ -1,0 +1,62 @@
+@import '_bourbon.scss';
+@import '../App/Config.scss';
+
+.about {
+  $gutters: 10px;
+
+  position: relative;
+  display: flex;
+  height: 100%;
+
+  &_aside {
+    border-radius: $cardOffset / 4;
+    background-position: 50%;
+    background-size: cover;
+    width: $cardAsideWidth;
+  }
+
+  &_main {
+    width: $cardMainWidth;
+  }
+
+  &_heading {
+    @include margin($textHeight null);
+    font-size: $mediumTextSize;
+  }
+
+  &_text {
+    @include margin($textHeight null);
+  }
+
+  &_techs {
+    overflow: hidden;
+  }
+
+  &_techsInner {
+    $offsetTop: -$gutters;
+    $offsetHorz: -($gutters / 2);
+    margin-top: $offsetTop !important;
+    margin-left: $offsetHorz;
+    margin-right: $offsetHorz;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &_techWrapper {
+    $offsetTop: $gutters;
+    $offsetHorz: $gutters / 2;
+    @include padding($offsetTop $offsetHorz null);
+  }
+
+  &_tech {
+    $padding: ($mediumTextHeight - $textHeight) / 2;
+    $radius: $padding / 2;
+    background-color: $colorGray;
+    border-radius: $radius;
+    display: inline-block;
+    padding: $padding;
+    color: $colorWhite;
+  }
+}

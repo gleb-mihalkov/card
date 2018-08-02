@@ -1,0 +1,27 @@
+[
+  {
+    "id": "about",
+    "education": "ИГЭУ им. Ленина, ИВТФ; c 2009 г. по 2014 г.",
+    "work": "ООО \"ИТР\"; с 2012 г. по настоящее время (6 лет)",
+    "image": "/res/about.jpg",
+    "techs": [
+      "HTML/CSS/JS",
+      "React",
+      "Angular",
+      "Backbone",
+      "Sass",
+      "Stylus",
+      "Postcss",
+      "PHP",
+      "Laravel",
+      "NodeJS",
+      "Python",
+      "Django",
+      "C#",
+      "ASP.NET MVC",
+      "GIT",
+      "Gulp",
+      "Webpack"
+    ]
+  }
+]

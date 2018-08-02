@@ -1,0 +1,19 @@
+@import '_bourbon.scss';
+@import './Config.scss';
+
+.app {
+  background-color: $colorBlue;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  &_main,
+  &_aside {
+    @include position(absolute, 50% null null 50%);
+  }
+
+  &_main {
+    transform: translate(-50%, -50%);
+  }
+}

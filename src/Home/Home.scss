@@ -1,0 +1,18 @@
+@import '_bourbon.scss';
+@import '../App/Config.scss';
+
+.home {
+  $offset: $mediumTextHeight / 2;
+  text-align: center;
+
+  &_heading {
+    @include margin($offset null);
+    font-size: $largeTextSize;
+    font-weight: bold;
+  }
+
+  &_subheading {
+    @include margin($offset null);
+    font-size: $mediumTextSize;
+  }
+}

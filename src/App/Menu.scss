@@ -1,0 +1,241 @@
+@import '_bourbon.scss';
+@import '_math.scss';
+@import './Config.scss';
+
+.menu {
+  $block: nth(&, 1);
+  $itemWidth: $blockWidth * 2;
+  $itemHeight: $blockHeight * 4;
+  $menuWidth: $cardWidth + $itemWidth * 2;
+  $menuHeight: $cardHeight + $itemHeight * 2;
+  $leftOffset: -($menuWidth / 2);
+  $rightOffset: $menuWidth / 2 - $itemWidth;
+  $topOffset: -($menuHeight / 2);
+  $bottomOffset: $menuHeight / 2 - $itemHeight;
+  $itemTextWidth: $itemWidth - $blockWidth * .5;
+  $itemTextSize: $mediumTextSize;
+  $itemTextHeight: $itemTextSize * $textLine;
+  $itemLineWidth: $itemWidth - $itemTextWidth;
+  $itemLineHeight: $itemHeight - $itemTextHeight;
+  $itemLineSizeSqr: pow($itemLineWidth / 1px, 2) + pow($itemLineHeight / 1px, 2);
+  $itemLineSize: sqrt($itemLineSizeSqr) * 1px;
+  $itemLineTan: $itemLineHeight / $itemLineWidth;
+  $itemLineAngle: rad-to-deg(atan($itemLineTan));
+  $itemLineLeftAngle: $itemLineAngle;
+  $itemLineRightAngle: $itemLineAngle - 90deg - 6.3deg;
+  $fade: 0.5;
+  $color: $colorLightGray;
+  $colorAccent: $colorWhite;
+  $arrowSize: $largeTextHeight;
+  $arrowLeftOffset: ($cardWidth / 2 + $cardOffset + $arrowSize) * -1;
+  $arrowRightOffset: $cardWidth / 2 + $cardOffset;
+
+  transition: all $duration ease-in-out;
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  opacity: $fade;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &_item {
+    transition: all $duration ease-in-out;
+    position: absolute;
+    display: block;
+    width: $itemWidth;
+    height: $itemHeight;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: $itemTextSize;
+    color: $color;
+
+    &:before {
+      transition: all $duration ease-in-out;
+      background: $color;
+      position: absolute;
+      display: block;
+      width: $itemLineSize;
+      height: 1px;
+      content: '';
+    }
+
+    &:hover {
+      color: $colorAccent;
+
+      &:before {
+        background-color: $colorAccent;
+      }
+
+      & #{$block}_itemText {
+        color: $colorAccent;
+
+        &:after {
+          transform: scale(1, 1);
+        }
+      }
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      top: $topOffset;
+
+      &:before {
+        bottom: 0;
+      }
+
+      & #{$block}_itemText {
+        top: 0;
+
+        &:before,
+        &:after {
+          bottom: 0;
+        }
+      }
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      top: $bottomOffset;
+
+      &:before {
+        top: 0;
+      }
+
+      & #{$block}_itemText {
+        bottom: 0;
+
+        &:before,
+        &:after {
+          top: 0;
+        }
+      }
+    }
+
+    &:nth-child(1),
+    &:nth-child(3) {
+      left: $leftOffset;
+
+      &:before {
+        transform-origin: right top;
+        right: 0;
+      }
+
+      & #{$block}_itemText {
+        left: 0;
+
+        &:after {
+          transform-origin: right top;
+        }
+      }
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      left: $rightOffset;
+
+      &:before {
+        transform-origin: left top;
+        left: 0;
+      }
+
+      & #{$block}_itemText {
+        right: 0;
+        text-align: right;
+
+        &:after {
+          transform-origin: left top;
+        }
+      }
+    }
+
+    &:nth-child(1) {
+
+      &:before {
+        transform: rotate($itemLineLeftAngle);
+      }
+    }
+
+    &:nth-child(2) {
+
+      &:before {
+        transform: rotate($itemLineRightAngle);
+      }
+    }
+
+    &:nth-child(3) {
+
+      &:before {
+        transform: rotate(-$itemLineLeftAngle);
+      }
+    }
+
+    &:nth-child(4) {
+
+      &:before {
+        transform: rotate(-$itemLineRightAngle);
+      }
+    }
+
+
+    &-back,
+    &-next {
+      transition: all .25s ease-in-out;
+      visibility: hidden;
+      opacity: 0;
+      width: $arrowSize;
+      height: $arrowSize;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &-back {
+      left: $arrowLeftOffset;
+
+      #{$block}#{$block}-back & {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &-next {
+      left: $arrowRightOffset;
+
+      #{$block}#{$block}-next & {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &_itemText {
+    position: absolute;
+    display: block;
+    width: $itemTextWidth;
+    height: $itemTextHeight;
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 1px;
+      content: '';
+    }
+
+    &:before {
+      background-color: $color;
+    }
+
+    &:after {
+      transition: all $duration ease-in-out;
+      transform: scale(0, 1);
+      background-color: $colorAccent;
+    }
+  }
+}

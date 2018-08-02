@@ -1,0 +1,49 @@
+@import './Config.scss';
+@import './Fonts.scss';
+
+* {
+  &, &:before, &:after {
+    box-sizing: border-box;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:focus {
+    outline: none !important;
+  }
+}
+
+html, body, #root {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  font-family: 'Roboto', 'sans';
+  font-size: $textSize;
+  line-height: $textLine;
+  color: $colorBlack;
+}
+
+a {
+  transition: all $duration ease-in-out;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: $colorBlue;
+  }
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+}

@@ -1,0 +1,44 @@
+@import '_bourbon.scss';
+@import '../App/Config.scss';
+
+.project {
+  position: relative;
+  display: flex;
+  height: 100%;
+
+  &_aside {
+    transition: none;
+    border-radius: $cardOffset / 4;
+    background-position: 50%;
+    background-size: cover;
+    width: $cardAsideWidth;
+  }
+
+  &_main {
+    padding-left: $cardOffset;
+    width: $cardMainWidth;
+  }
+
+  &_heading {
+    @include margin($textHeight null);
+    font-size: $largeTextSize;
+  }
+
+  &_text {
+    @include margin($mediumTextHeight null);
+    line-height: $mediumTextHeight;
+  }
+
+  &_position {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+  }
+
+  &_number,
+  &_slash,
+  &_count {
+    margin-left: 5px;
+  }
+}

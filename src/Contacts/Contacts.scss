@@ -1,0 +1,32 @@
+@import '_bourbon.scss';
+@import '../App/Config.scss';
+
+.contacts {
+  text-align: center;
+
+  &_item {
+    $offset: $mediumTextHeight / 2;
+    @include margin($offset null);
+
+    transition: all $duration ease-in-out;
+    display: block;
+    text-decoration: none;
+    font-size: $mediumTextSize;
+    color: $colorBlack;
+
+    &:hover {
+      color: $colorBlue;
+    }
+  }
+
+  &_itemText,
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  svg {
+    height: $mediumTextSize;
+    margin-right: 8px;
+  }
+}

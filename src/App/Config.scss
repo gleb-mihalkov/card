@@ -1,0 +1,29 @@
+$colorBlue: #3f51b5;
+$colorWhite: #fff;
+$colorBlack: #212121;
+$colorGreen: #00796B;
+$colorGray: #757575;
+$colorLightGray: #BDBDBD;
+
+$textSize: 14px;
+$textHeight: 18px;
+$textLine: $textHeight / $textSize;
+
+$largeTextSize: $textSize * 2;
+$largeTextHeight: $largeTextSize * $textLine;
+
+$mediumTextSize: $textSize * 1.5;
+$mediumTextHeight: $textLine * $mediumTextSize;
+
+$blockWidth: 80px;
+$blockHeight: $textHeight;
+
+$cardWidth: $blockWidth * 9;
+$cardHeight: $blockHeight * 20;
+$cardOffset: $textHeight;
+$cardInnerWidth: $cardWidth - $cardOffset * 2;
+$cardInnerHeight: $cardHeight - $cardOffset * 2;
+$cardMainWidth: $cardWidth / 3 * 2;
+$cardAsideWidth: $cardWidth / 3;
+
+$duration: .25s;

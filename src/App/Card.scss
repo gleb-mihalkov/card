@@ -1,0 +1,57 @@
+@import '_bourbon.scss';
+@import './Config.scss';
+
+.card {
+  $block: nth(&, 1);
+  $borderRadius: $cardOffset / 2;
+  $padding: $cardOffset;
+
+  @include padding($padding);
+  background-color: $colorWhite;
+  position: relative;
+  display: block;
+  width: $cardWidth;
+  height: $cardHeight;
+  border-radius: $borderRadius;
+
+  &_aside {
+    @include position(absolute, 0);
+    transition: all $duration ease-in-out;
+    border-radius: $borderRadius;
+    background-color: $colorLightGray;
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    color: $colorBlue;
+    content: '';
+
+    svg {
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  &-centred {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-fullheight {
+
+    & #{$block}_main {
+      position: relative;
+      height: 100%;
+    }
+  }
+
+  &-loaded {
+
+    & #{$block}_aside {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
