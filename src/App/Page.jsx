@@ -23,10 +23,10 @@ export default class PageContainer extends React.Component {
     };
 
     /**
-     * True if container is mounted.
+     * True if container is mounted in DOM.
      * @type {Boolean}
      */
-    this._isMounted = false;
+    this.isAttached = false;
 
     /**
      * Index of model in container.
@@ -78,27 +78,19 @@ export default class PageContainer extends React.Component {
   }
 
   /**
-   * Returns class of inner page.
-   * @return {Function} Class of page.
-   */
-  getPage() {
-    throw new Error(`Abstract method is not implemented`);
-  }
-
-  /**
    * Returns promise which resolves array of models.
    * @return {Promise} Promise of models.
    */
-  _getModels() {
+  getModels() {
     let self = this.constructor;
     let url = this.getUrl();
 
-    if (self._promise) {
-      return self._promise;
+    if (self.promise) {
+      return self.promise;
     }
 
-    if (self._models) {
-      return Promise.resolve(self._models);
+    if (self.models) {
+      return Promise.resolve(self.models);
     }
 
     let time = Config.minRequestTime;
@@ -109,13 +101,13 @@ export default class PageContainer extends React.Component {
     let request = Axios.get(url).then(response => {
       models = response.data;
 
-      delete(self._promise);
+      delete(self.promise);
 
-      self._models = self._models || {};
-      return self._models = models;
+      self.models = self.models || {};
+      return self.models = models;
     });
 
-    return self._promise = Promise.all([request, timeout])
+    return self.promise = Promise.all([request, timeout])
       .then(() => models);
   }
 
@@ -124,10 +116,10 @@ export default class PageContainer extends React.Component {
    * @return {void}
    */
   componentDidMount() {
-    this._isMounted = true;
+    this.isAttached = true;
 
-    this._getModels().then(models => {
-      if (!this._isMounted) {
+    this.getModels().then(models => {
+      if (!this.isAttached) {
         return;
       }
 
@@ -160,7 +152,7 @@ export default class PageContainer extends React.Component {
    * @return {void}
    */
   componentWillUnmount() {
-    this._isMounted = false;
+    this.isAttached = false;
   }
 
   /**
