@@ -1,6 +1,7 @@
 import React from 'react';
 import Page from '../App/Page.jsx';
 import Card from '../App/Card.jsx';
+import LazyImage from '../App/LazyImage.jsx';
 import './About.scss';
 
 /**
@@ -21,8 +22,8 @@ export default class AboutPage extends Page {
    * @return {*}
    */
   renderModel() {
-    let image = {backgroundImage: `url(${this.model.image})`};
     let imageTitle = 'Прошу прощения, я не нашел нормальных фотографий себя.';
+    let image = this.model.image;
     let education = this.model.education;
     let work = this.model.work;
 
@@ -45,7 +46,9 @@ export default class AboutPage extends Page {
               <span className="about_techsInner">{techs}</span>
             </p>
           </div>
-          <span className="about_aside" style={image} title={imageTitle}></span>
+          <span className="about_aside" title={imageTitle}>
+            <LazyImage src={image} />
+          </span>
         </article>
       </Card>
     );

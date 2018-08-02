@@ -1,6 +1,7 @@
 import React from 'react';
 import Page from '../App/Page.jsx';
 import Card from '../App/Card.jsx';
+import LazyImage from '../App/LazyImage.jsx';
 import './Project.scss';
 
 /**
@@ -21,7 +22,7 @@ export default class ProjectPage extends Page {
    * @return {*}
    */
   renderModel() {
-    let image = {backgroundImage: `url(${this.model.image})`};
+    let image = this.model.image;
     let link = this.model.link;
     let name = this.model.name;
     let text = this.model.text;
@@ -33,7 +34,9 @@ export default class ProjectPage extends Page {
     return (
       <Card fullheight={true}>
         <article className="project">
-          <a className="project_aside" title={title} style={image} href={link} target="_blank" rel="nofollow"></a>
+          <a className="project_aside" title={title} href={link} target="_blank" rel="nofollow">
+            <LazyImage src={image} />
+          </a>
           <div className="project_main">
             <h2 className="project_heading">
               <a href={link} title={title} target="_blank" rel="nofollow">{name}</a>
