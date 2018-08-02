@@ -22,6 +22,7 @@ export default class AboutPage extends Page {
    */
   renderModel() {
     let image = {backgroundImage: `url(${this.model.image})`};
+    let imageTitle = 'Прошу прощения, я не нашел нормальных фотографий себя.';
     let education = this.model.education;
     let work = this.model.work;
 
@@ -44,7 +45,7 @@ export default class AboutPage extends Page {
               <span className="about_techsInner">{techs}</span>
             </p>
           </div>
-          <div className="about_aside" style={image}></div>
+          <span className="about_aside" style={image} title={imageTitle}></span>
         </article>
       </Card>
     );
