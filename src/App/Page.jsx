@@ -6,7 +6,7 @@ import Card from './Card/Card.jsx';
 /**
  * Base class of container component.
  */
-export default class PageContainer extends React.Component {
+export default class Page extends React.Component {
 
   /**
    * Creates the instance of container.
