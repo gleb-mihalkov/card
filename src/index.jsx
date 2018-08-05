@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App/AppContainer.jsx';
+import {HashRouter, Route} from 'react-router-dom';
+import App from './App/App.jsx';
 
 let loaded = (() => {
   let preload = document.getElementById('preload');
@@ -24,5 +25,12 @@ window.addEventListener('load', loaded(), {once: true});
 
 window.addEventListener('DOMContentLoaded', () => {
   let root = document.getElementById('root');
-  ReactDOM.render(<App />, root, loaded());
+
+  let node = (
+    <HashRouter>
+      <Route path="/" component={App} />
+    </HashRouter>
+  );
+  
+  ReactDOM.render(node, root, loaded());
 });
