@@ -16,4 +16,14 @@
   &_main {
     transform: translate(-50%, -50%);
   }
+
+  &_aside {
+
+    &-bottom {
+      top: auto;
+      left: 0;
+      width: 100%;
+      bottom: 0;
+    }
+  }
 }

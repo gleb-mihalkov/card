@@ -1,0 +1,16 @@
+@import '../Config/Config.scss';
+
+.github {
+  display: flex;
+  justify-content: center;
+  padding-bottom: $textHeight;
+  opacity: .5;
+
+  &_link {
+    color: $colorLightGray;
+
+    &:hover {
+      color: $colorWhite;
+    }
+  }
+}

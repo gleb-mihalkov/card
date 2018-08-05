@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter, Route} from 'react-router-dom';
+import Github from './Github/Github.jsx';
 import Menu from './Menu/Menu.jsx';
 import Flip from './Flip/Flip.jsx';
 import Home from '../Home/Home.jsx';
@@ -160,6 +161,9 @@ export default class App extends React.Component {
         </div>
         <div className="app_aside">
           <Menu back={backLink} next={nextLink} disabled={isDisabed} onItem={clickMenu} />
+        </div>
+        <div className="app_aside app_aside-bottom">
+          <Github />
         </div>
       </div>
     );
