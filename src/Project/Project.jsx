@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from '../App/Page.jsx';
 import Card from '../App/Card.jsx';
-import LazyImage from '../App/LazyImage.jsx';
+import LazyImage from '../App/LazyImage/LazyImage.jsx';
 import './Project.scss';
 
 /**
