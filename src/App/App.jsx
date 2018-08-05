@@ -192,6 +192,7 @@ export default class App extends React.Component {
     });
 
     Promise.all([rendered, loaded]).then(() => {
+      let preload = document.getElementById('preload');
       document.body.classList.remove('loading');
       setTimeout(() => preload.remove(), 250);
     });
