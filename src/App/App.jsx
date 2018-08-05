@@ -1,5 +1,6 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import {HashRouter, Route} from 'react-router-dom';
 import Menu from './Menu/Menu.jsx';
 import Flip from './Flip/Flip.jsx';
 import Home from '../Home/Home.jsx';
@@ -161,5 +162,33 @@ export default class App extends React.Component {
         </div>
       </div>
     );
+  }
+
+  /**
+   * Runs application.
+   * @return {void}
+   */
+  static start() {
+    let container = (
+      <HashRouter>
+        <Route path="/" component={this} />
+      </HashRouter>
+    );
+
+    let rendered = new Promise(resolve => {
+      window.addEventListener('DOMContentLoaded', () => {
+        let root = document.getElementById('root');
+        ReactDOM.render(container, root, resolve);
+      });
+    });
+
+    let loaded = new Promise(resolve => {
+      window.addEventListener('load', resolve, {once: true});
+    });
+
+    Promise.all([rendered, loaded]).then(() => {
+      document.body.classList.remove('loading');
+      setTimeout(() => preload.remove(), 250);
+    });
   }
 }
