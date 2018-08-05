@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import Config from './Config.jsx';
-import Card from './Card.jsx';
+import Card from './Card/Card.jsx';
 
 /**
  * Base class of container component.

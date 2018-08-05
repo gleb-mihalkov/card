@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../App/Page.jsx';
-import Card from '../App/Card.jsx';
+import Card from '../App/Card/Card.jsx';
 import './Contacts.scss';
 
 /**
