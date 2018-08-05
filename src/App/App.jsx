@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import Menu from './Menu.jsx';
+import Menu from './Menu/Menu.jsx';
 import Flip from './Flip/Flip.jsx';
 import Home from '../Home/Home.jsx';
 import About from '../About/About.jsx';
