@@ -7,7 +7,8 @@ import Home from '../Home/Home.jsx';
 import About from '../About/About.jsx';
 import Contacts from '../Contacts/Contacts.jsx';
 import Project from '../Project/Project.jsx';
-import './Reset.scss';
+import './Fonts/Fonts.scss';
+import './Reset/Reset.scss';
 import './App.scss';
 
 /**
