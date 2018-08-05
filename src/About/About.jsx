@@ -7,7 +7,7 @@ import './About.scss';
 /**
  * About page component.
  */
-export default class AboutPage extends Page {
+export default class About extends Page {
 
   /**
    * Returns URL of API with models.

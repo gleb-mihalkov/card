@@ -6,7 +6,7 @@ import './Home.scss';
 /**
  * Home page component.
  */
-export default class HomePage extends Page {
+export default class Home extends Page {
 
   /**
    * Returns URL of API with home models.

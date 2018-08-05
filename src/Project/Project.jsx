@@ -7,7 +7,7 @@ import './Project.scss';
 /**
  * About page component.
  */
-export default class ProjectPage extends Page {
+export default class Project extends Page {
 
   /**
    * Returns URL of API with models.

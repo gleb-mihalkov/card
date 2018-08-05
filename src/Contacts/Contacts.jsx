@@ -6,7 +6,7 @@ import './Contacts.scss';
 /**
  * Contacts page component.
  */
-export default class ContactsPage extends Page {
+export default class Contacts extends Page {
 
   /**
    * Returns URL of API with models.
