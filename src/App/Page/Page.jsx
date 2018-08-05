@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import Config from '../Config.jsx';
+import Config from '../Config/Config.jsx';
 import Card from '../Card/Card.jsx';
 
 /**

@@ -1,6 +1,6 @@
 @import '_bourbon.scss';
 @import '_math.scss';
-@import '../Config.scss';
+@import '../Config/Config.scss';
 
 .menu {
   $block: nth(&, 1);

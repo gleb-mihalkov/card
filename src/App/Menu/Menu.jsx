@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import Config from '../Config.jsx';
+import Config from '../Config/Config.jsx';
 import './Menu.scss';
 
 /**
