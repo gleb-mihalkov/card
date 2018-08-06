@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import classnames from 'classnames';
 import Config from '../Config/Config.jsx';
 import './Menu.scss';
 
@@ -75,13 +76,16 @@ export default class Menu extends React.Component {
    * @return {*}
    */
   render() {
-    let classList = ['menu'];
-    this.props.back && classList.push('menu-back');
-    this.props.next && classList.push('menu-next');
-    classList = classList.join(' ');
+    let {back, next} = this.props;
 
-    let nextLink = this.props.next || '#';
-    let backLink = this.props.back || '#';
+    let classes = classnames({
+      'menu': true,
+      'menu-back': back,
+      'menu-next': next
+    });
+
+    let nextLink = next || '#';
+    let backLink = back || '#';
 
     let count = this.items.length;
 
@@ -101,7 +105,7 @@ export default class Menu extends React.Component {
     let clickNext = this.onNextClick;
 
     return (
-      <nav role="navigation" className={classList}>
+      <nav role="navigation" className={classes}>
         {items}
         <NavLink className="menu_item menu_item-back" key={-1} to={backLink} onClick={clickBack}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
