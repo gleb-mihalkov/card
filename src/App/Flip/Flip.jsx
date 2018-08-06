@@ -1,6 +1,7 @@
 import React from 'react';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 import {Switch} from 'react-router-dom';
+import classnames from 'classnames';
 import './Flip.scss';
 
 /**
@@ -40,21 +41,25 @@ export default class Flip extends React.Component {
    * @return {*}
    */
   render() {
-    let classList = ['flip'];
-    this.props.type && classList.push(`flip-${this.props.type}`);
-    classList = classList.join(' ');
+    let {location, timeout, type, children} = this.props;
 
-    let location = this.props.location;
+    let classes = {
+      'flip': true
+    };
+
+    if (type) {
+      classes[`flip-${type}`] = true;
+    }
+
+    classes = classnames(classes);
+
     let path = location.pathname;
     let end = this.onEnd;
-    let time = this.props.timeout;
 
     return (
-      <TransitionGroup className={classList}>
-        <CSSTransition classNames="flip" key={path} timeout={time} onExited={end}>
-          <Switch location={location}>
-            {this.props.children}
-          </Switch>
+      <TransitionGroup className={classes}>
+        <CSSTransition classNames="flip" key={path} timeout={timeout} onExited={end}>
+          <Switch location={location}>{children}</Switch>
         </CSSTransition>
       </TransitionGroup>
     );
