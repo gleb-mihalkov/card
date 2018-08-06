@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import './Card.scss';
 
 /**
@@ -11,18 +12,19 @@ export default class Card extends React.Component {
    * @return {*}
    */
   render() {
-    let {isLoading, centred, fullheight} = this.props;
+    let {isLoading, centred, fullheight, children} = this.props;
 
-    let classList = ['card', isLoading ? 'card-loading' : 'card-loaded'];
-    fullheight && classList.push('card-fullheight');
-    centred && classList.push('card-centred');
-    classList = classList.join(' ');
+    let classes = classnames({
+      'card': true,
+      'card-loading': isLoading,
+      'card-loaded': !isLoading,
+      'card-fullheight': fullheight,
+      'card-centred': centred
+    });
 
     return (
-      <div className={classList}>
-        <div className="card_main">
-          {this.props.children}
-        </div>
+      <div className={classes}>
+        <div className="card_main">{children}</div>
         <div className="card_aside">
           <svg x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30">
             <rect x="0" y="13" width="4" height="5" fill="#333">

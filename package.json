@@ -39,6 +39,7 @@
     "axios": "^0.18.0",
     "babel-preset-stage-2": "^6.24.1",
     "bourbon": "^5.1.0",
+    "classnames": "^2.2.6",
     "mathsass": "^0.10.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
