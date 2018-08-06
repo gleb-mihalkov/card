@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import './LazyImage.scss';
 
 /**
@@ -76,16 +77,17 @@ export default class LazyImage extends React.Component {
   render() {
     let self = this.constructor;
     let src = this.props.src;
-    
+
     let isLoaded = this.state.isLoaded || self.urls && self.urls[src];
     let image = isLoaded ? {backgroundImage: `url(${src})`} : null;
 
-    let classList = ['lazyImage'];
-    isLoaded && classList.push('lazyImage-loaded');
-    classList = classList.join(' ');
+    let classes = classnames({
+      'lazyImage': true,
+      'lazyImage-loaded': isLoaded
+    });
 
     return (
-      <span className={classList} style={image}></span>
+      <span className={classes} style={image}></span>
     );
   }
 }
