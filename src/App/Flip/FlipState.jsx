@@ -1,4 +1,4 @@
-import {observable} from 'mobx';
+import {observable, computed, action} from 'mobx';
 import FlipType from './FlipType.jsx';
 
 /**
