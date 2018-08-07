@@ -5,6 +5,7 @@ import Github from './Github/Github.jsx';
 import Menu from './Menu/Menu.jsx';
 import Flip from './Flip/Flip.jsx';
 import FlipState from './Flip/FlipState.jsx';
+import ListState from './List/ListState.jsx';
 import Home from '../Home/Home.jsx';
 import About from '../About/About.jsx';
 import Contacts from '../Contacts/Contacts.jsx';
@@ -51,6 +52,12 @@ export default class App extends React.Component {
      * @type {FlipState}
      */
     this.flip = new FlipState();
+
+    /**
+     * State of model's list.
+     * @type {ListState}
+     */
+    this.list = new ListState();
   }
 
   /**
