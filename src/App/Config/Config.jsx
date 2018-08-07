@@ -1,5 +1,6 @@
 export default {
   minRequestTime: 1000,
+  flippingDuration: 1000,
   menu: [
     {
       text: 'Главная',
