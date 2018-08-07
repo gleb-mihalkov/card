@@ -79,7 +79,8 @@ export default class Menu extends React.Component {
    * @return {*}
    */
   render() {
-    let {back, next} = this.props;
+    let back = this.props.list.info.backLink;
+    let next = this.props.list.info.nextLink;
 
     let classes = classnames({
       'menu': true,

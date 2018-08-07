@@ -10,7 +10,7 @@ export default class ListState {
    * Object with information about current list.
    * @type {ListInfo}
    */
-  @observable info = null;
+  @observable info = new ListInfo();
 
   /**
    * Sets information about the list.
@@ -19,8 +19,7 @@ export default class ListState {
    * @param {Object} next     Next model.
    */
   setInfo(current, previous, next) {
-    let isEquals = this.info
-      && this.info.current === current
+    let isEquals = this.info.current === current
       && this.info.previous === previous
       && this.info.next === next;
 

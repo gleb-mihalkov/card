@@ -142,8 +142,7 @@ export default class Page extends React.Component {
    * @return {void}
    */
   componentDidUpdate() {
-    this.props.onModels
-      && this.props.onModels.call(this, this.model, this.prev, this.next);
+    this.props.list.setInfo(this.model, this.prev, this.next);
   }
 
   /**

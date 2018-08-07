@@ -35,8 +35,8 @@ export default class ListInfo {
    * @return {String} Base part of link.
    */
   getLinkBase() {
-    let regexp = new RegExp(`/${model.id}$`);
-    let path = location.pathname;
+    let path = location.hash.replace(/^#/, '') || '/';
+    let regexp = new RegExp(`/${this.current.id}$`);
     let base = path.replace(regexp, '').replace(/\/$/, '');
     return base;
   }

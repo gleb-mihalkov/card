@@ -114,12 +114,13 @@ export default class App extends React.Component {
     let nextLink = this.state.nextLink;
 
     let flip = this.flip;
+    let list = this.list;
 
     let routes = Object.keys(this.routes).map(path => {
       let Page = this.routes[path];
 
       let page = (props) => (
-        <Page onModels={this.onModels} {...props} />
+        <Page list={list} {...props} />
       );
 
       return (
@@ -135,7 +136,7 @@ export default class App extends React.Component {
           </Flip>
         </div>
         <div className="app_aside">
-          <Menu back={backLink} next={nextLink} flip={flip} />
+          <Menu flip={flip} list={list} />
         </div>
         <div className="app_aside app_aside-bottom">
           <Github />
