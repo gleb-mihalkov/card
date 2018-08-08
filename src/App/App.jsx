@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {HashRouter, Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Github from './Github/Github.jsx';
 import Menu from './Menu/Menu.jsx';
 import Flip from './Flip/Flip.jsx';
