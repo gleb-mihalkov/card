@@ -1,11 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { HashRouter, Route } from 'react-router-dom';
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { Provider as ReduxProvider } from 'react-redux';
+import { createLogger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk'
 
 export default (App, reducers = {}) => {
-  let store = createStore(combineReducers(reducers));
+  let store = createStore(combineReducers(reducers), applyMiddleware(
+    thunkMiddleware,
+    // createLogger()
+  ));
 
   let node = (
     <ReduxProvider store={store}>

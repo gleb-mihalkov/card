@@ -1,93 +1,31 @@
-import React from 'react';
-import classnames from 'classnames';
-import './LazyImage.scss';
+import { connect } from 'react-redux';
+import load from './LazyImageAction.jsx';
+import LazyImageView from './LazyImageView.jsx';
 
 /**
- * Component of image with lazy loading.
+ * Returns props for view.
+ * @param  {Object} state State.
+ * @param  {Object} props Own props.
+ * @return {Object}       Props.
  */
-export default class LazyImage extends React.Component {
+let getProps = (state, props) => ({
+  src: props.src,
+  loaded: state.lazyImages[props.src] && state.lazyImages[props.src].isLoaded
+});
 
-  /**
-   * Creates new instance of component.
-   * @param {Array} args Arguments.
-   */
-  constructor(...args) {
-    super(...args);
-
-    /**
-     * Default state.
-     * @type {Object}
-     */
-    this.state = {
-      isLoaded: false
-    };
-
-    this.onLoad = this.onLoad.bind(this);
+/**
+ * Returns handlers for view.
+ * @param  {Function} dispatch dispatch func.
+ * @param  {Object}   props    Own props.
+ * @return {Object}            Handlers.
+ */
+let getFuncs = (dispatch, props) => ({
+  onMount: () => {
+    dispatch(load(props.src));
   }
+});
 
-  /**
-   * Loads image.
-   * @param  {String} src Address of image.
-   * @return {void}
-   */
-  load(src) {
-    let self = this.constructor;
-    self.urls = self.urls || {};
-
-    if (self.urls[src]) {
-      return;
-    }
-
-    let image = new Image();
-
-    image.onload = () => {
-      self.urls[src] = true;
-
-      this.setState({
-        isLoaded: true
-      });
-    };
-
-    image.src = src;
-  }
-
-  /**
-   * Calls when component has been mounted.
-   * @return {void}
-   */
-  componentDidMount() {
-    this.load(this.props.src);
-  }
-
-  /**
-   * Handles loading of image.
-   * @param  {String} url URL of image.
-   * @return {void}
-   */
-  onLoad() {
-    this.setState({
-      isLoaded: true
-    });
-  }
-
-  /**
-   * Renders component.
-   * @return {*}
-   */
-  render() {
-    let self = this.constructor;
-    let src = this.props.src;
-
-    let isLoaded = this.state.isLoaded || self.urls && self.urls[src];
-    let image = isLoaded ? {backgroundImage: `url(${src})`} : null;
-
-    let classes = classnames({
-      'lazyImage': true,
-      'lazyImage-loaded': isLoaded
-    });
-
-    return (
-      <span className={classes} style={image}></span>
-    );
-  }
-}
+/**
+ * Lazy image component.
+ */
+export default connect(getProps, getFuncs)(LazyImageView);
