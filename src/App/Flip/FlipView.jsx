@@ -1,5 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Switch } from 'react-router';
+import './FlipView.scss';
 
 /**
  * Renders card's flip wrapper component.
@@ -10,7 +13,7 @@ import classnames from 'classnames';
  * @param  {Function}      onEnd    Handles the end of animation.
  * @return {React.Element}          Element.
  */
-export const ({ children, type, timeout, location, onEnd }) => {
+export default ({ children, type, timeout, location, onEnd }) => {
   let className = classnames({
     ['flip']: true,
     [`flip-${type}`]: type

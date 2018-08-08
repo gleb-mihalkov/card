@@ -1,67 +1,30 @@
-import React from 'react';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
-import {Switch} from 'react-router-dom';
-import classnames from 'classnames';
-import './Flip.scss';
+import { connect } from 'react-redux';
+import { flipEnd } from './FlipAction.jsx';
+import FlipView from './FlipView.jsx';
 
 /**
- * Component of card's transition.
+ * Assigns new props from state.
+ * @param  {Object} state State.
+ * @param  {Object} props Own props.
+ * @return {Object}       Props for view component.
  */
-export default class Flip extends React.Component {
+const stateToProps = (state, props) => {
+  return {
+    type: state.flip
+  };
+};
 
-  /**
-   * Creates instance of class.
-   * @param {*} args Arguments.
-   */
-  constructor(...args) {
-    super(...args);
+/**
+ * Assigns new props with dispatch.
+ * @param  {Function} dispatch Dispatches actions.
+ * @param  {Object}   props    Own props.
+ * @return {Object}            New props.
+ */
+const dispatchToProps = (dispatch, props) => {
+  return {
+    onEnd: () => dispatch(flipEnd())
+  };
+};
 
-    this.onEnd = this.onEnd.bind(this);
-  }
-
-  /**
-   * Sends flip state to parent component.
-   * @param  {Number} value Flip state.
-   * @return {void}
-   */
-  sendFlip(value) {
-    this.props.onFlipEnd && this.props.onFlipEnd.call(this, value);
-  }
-
-  /**
-   * Handles ending of animation.
-   * @return {void}
-   */
-  onEnd() {
-    this.sendFlip(null);
-  }
-
-  /**
-   * Renders component.
-   * @return {*}
-   */
-  render() {
-    let {location, timeout, type, children} = this.props;
-
-    let classes = {
-      'flip': true
-    };
-
-    if (type) {
-      classes[`flip-${type}`] = true;
-    }
-
-    classes = classnames(classes);
-
-    let path = location.pathname;
-    let end = this.onEnd;
-
-    return (
-      <TransitionGroup className={classes}>
-        <CSSTransition classNames="flip" key={path} timeout={timeout} onExited={end}>
-          <Switch location={location}>{children}</Switch>
-        </CSSTransition>
-      </TransitionGroup>
-    );
-  }
-}
+// Create the component.
+export default connect(stateToProps, dispatchToProps)(FlipView);
