@@ -159,22 +159,25 @@ export default class Page extends React.Component {
    * @return {*}
    */
   render() {
-    if (!this.state.models) {
-      return (
-        <Card isLoading={true}></Card>
-      );
+    let isLoaded = this.state.models;
+    let content = null;
+
+    if (isLoaded) {
+      let id =
+        this.props.match && this.props.match.params && this.props.match.params.id
+        || this.state.models && this.state.models[0] && this.state.models[0].id;
+
+      this.index = this.state.models.findIndex(m => m.id === id);
+      this.next = this.index >= 0 && this.state.models[this.index + 1] || null;
+      this.prev = this.index >= 0 && this.state.models[this.index - 1] || null;
+      this.model = this.index >= 0 && this.state.models[this.index] || null;
+      this.count = this.state.models.length;
+
+      content = this.renderModel();
     }
 
-    let id =
-      this.props.match && this.props.match.params && this.props.match.params.id
-      || this.state.models && this.state.models[0] && this.state.models[0].id;
-
-    this.index = this.state.models.findIndex(m => m.id === id);
-    this.next = this.index >= 0 && this.state.models[this.index + 1] || null;
-    this.prev = this.index >= 0 && this.state.models[this.index - 1] || null;
-    this.model = this.index >= 0 && this.state.models[this.index] || null;
-    this.count = this.state.models.length;
-
-    return this.renderModel();
+    return (
+      <Card loaded={isLoaded}>{content}</Card>
+    );
   }
 }

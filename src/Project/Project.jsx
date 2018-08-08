@@ -32,24 +32,22 @@ export default class Project extends Page {
     let title = 'Перейти на сайт';
 
     return (
-      <Card fullheight={true}>
-        <article className="project">
-          <a className="project_aside" title={title} href={link} target="_blank" rel="nofollow">
-            <LazyImage src={image} />
-          </a>
-          <div className="project_main">
-            <h2 className="project_heading">
-              <a href={link} title={title} target="_blank" rel="nofollow">{name}</a>
-            </h2>
-            <p className="project_text">{text}</p>
-          </div>
-          <div className="project_position">
-            <span className="project_number">{number}</span>
-            <span className="project_slash">/</span>
-            <span className="project_count">{count}</span>
-          </div>
-        </article>
-      </Card>
+      <article className="project">
+        <a className="project_aside" title={title} href={link} target="_blank" rel="nofollow">
+          <LazyImage src={image} />
+        </a>
+        <div className="project_main">
+          <h2 className="project_heading">
+            <a href={link} title={title} target="_blank" rel="nofollow">{name}</a>
+          </h2>
+          <p className="project_text">{text}</p>
+        </div>
+        <div className="project_position">
+          <span className="project_number">{number}</span>
+          <span className="project_slash">/</span>
+          <span className="project_count">{count}</span>
+        </div>
+      </article>
     );
   }
 }

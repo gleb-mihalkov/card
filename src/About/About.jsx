@@ -34,23 +34,21 @@ export default class About extends Page {
     ));
 
     return (
-      <Card fullheight={true}>
-        <article className="about">
-          <div className="about_main">
-            <h2 className="about_heading">Образование</h2>
-            <p className="about_text">{education}</p>
-            <h2 className="about_heading">Опыт работы</h2>
-            <p className="about_text">{work}</p>
-            <h2 className="about_heading">Технологии</h2>
-            <p className="about_techs">
-              <span className="about_techsInner">{techs}</span>
-            </p>
-          </div>
-          <span className="about_aside" title={imageTitle}>
-            <LazyImage src={image} />
-          </span>
-        </article>
-      </Card>
+      <article className="about">
+        <div className="about_main">
+          <h2 className="about_heading">Образование</h2>
+          <p className="about_text">{education}</p>
+          <h2 className="about_heading">Опыт работы</h2>
+          <p className="about_text">{work}</p>
+          <h2 className="about_heading">Технологии</h2>
+          <p className="about_techs">
+            <span className="about_techsInner">{techs}</span>
+          </p>
+        </div>
+        <span className="about_aside" title={imageTitle}>
+          <LazyImage src={image} />
+        </span>
+      </article>
     );
   }
 }

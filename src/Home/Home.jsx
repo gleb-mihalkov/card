@@ -25,12 +25,12 @@ export default class Home extends Page {
     let post = this.model.post;
 
     return (
-      <Card centred={true}>
-        <article className="home">
+      <article className="home">
+        <div className="home_inner">
           <h1 className="home_heading">{name}</h1>
           <p className="home_subheading">{post}</p>
-        </article>
-      </Card>
+        </div>
+      </article>
     );
   }
 }
