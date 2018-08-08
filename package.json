@@ -41,9 +41,11 @@
     "bourbon": "^5.1.0",
     "classnames": "^2.2.6",
     "mathsass": "^0.10.1",
-    "react": "^16.4.1",
+    "react": "^16.4.2",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
-    "react-transition-group": "^2.4.0"
+    "react-transition-group": "^2.4.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   }
 }
