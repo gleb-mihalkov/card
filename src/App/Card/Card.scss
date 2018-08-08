@@ -33,20 +33,6 @@
     }
   }
 
-  &-centred {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &-fullheight {
-
-    & #{$block}_main {
-      position: relative;
-      height: 100%;
-    }
-  }
-
   &-loaded {
 
     & #{$block}_aside {

@@ -5,14 +5,11 @@ import './Card.scss';
 /**
  * Card component.
  */
-export default ({ isLoading, centred, fullheight, children }) => {
+export default ({ loaded, children }) => {
 
   let classes = classnames({
     'card': true,
-    'card-loading': isLoading,
-    'card-loaded': !isLoading,
-    'card-fullheight': fullheight,
-    'card-centred': centred
+    'card-loaded': loaded
   });
 
   return (
