@@ -33,6 +33,11 @@
     }
   }
 
+  &_main {
+    @include size(100%);
+    display: block;
+  }
+
   &-loaded {
 
     & #{$block}_aside {
