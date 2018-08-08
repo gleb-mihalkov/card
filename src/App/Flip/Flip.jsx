@@ -8,9 +8,11 @@ import FlipView from './FlipView.jsx';
  * @param  {Object} props Own props.
  * @return {Object}       Props for view component.
  */
-const stateToProps = (state, props) => {
+const getProps = (state, props) => {
   return {
-    type: state.flip
+    type: state.flip,
+    timeout: props.timeout,
+    location: props.location
   };
 };
 
@@ -20,11 +22,13 @@ const stateToProps = (state, props) => {
  * @param  {Object}   props    Own props.
  * @return {Object}            New props.
  */
-const dispatchToProps = (dispatch, props) => {
+const getFuncs = (dispatch, props) => {
   return {
-    onEnd: () => dispatch(flipEnd())
+    onEnd: () => {
+      dispatch(flipEnd());
+    }
   };
 };
 
 // Create the component.
-export default connect(stateToProps, dispatchToProps)(FlipView);
+export default connect(getProps, getFuncs)(FlipView);

@@ -21,7 +21,7 @@ export default ({ children, type, timeout, location, onEnd }) => {
 
   return (
     <TransitionGroup className={className}>
-      <CSSTransition classNames="flip" key={location.path} timeout={timeout} onExited={onEnd}>
+      <CSSTransition classNames="flip" key={location.pathname} timeout={timeout} onExited={onEnd}>
         <Switch location={location}>{children}</Switch>
       </CSSTransition>
     </TransitionGroup>
