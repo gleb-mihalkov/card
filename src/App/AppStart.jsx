@@ -2,10 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { HashRouter, Route } from 'react-router-dom';
 
-export default ({ app }) => {
+export default (App) => {
   let node = (
     <HashRouter>
-      <Route path="/" component={app} />
+      <Route path="/" component={App} />
     </HashRouter>
   );
 
