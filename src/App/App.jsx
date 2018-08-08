@@ -8,6 +8,7 @@ import Home from '../Home/Home.jsx';
 import About from '../About/About.jsx';
 import Contacts from '../Contacts/Contacts.jsx';
 import Project from '../Project/Project.jsx';
+import runApp from '../AppStart.jsx';
 import './Fonts/Fonts.scss';
 import './Reset/Reset.scss';
 import './App.scss';
@@ -174,27 +175,6 @@ export default class App extends React.Component {
    * @return {void}
    */
   static start() {
-    let container = (
-      <HashRouter>
-        <Route path="/" component={this} />
-      </HashRouter>
-    );
-
-    let rendered = new Promise(resolve => {
-      window.addEventListener('DOMContentLoaded', () => {
-        let root = document.getElementById('root');
-        ReactDOM.render(container, root, resolve);
-      });
-    });
-
-    let loaded = new Promise(resolve => {
-      window.addEventListener('load', resolve, {once: true});
-    });
-
-    Promise.all([rendered, loaded]).then(() => {
-      let preload = document.getElementById('preload');
-      document.body.classList.remove('loading');
-      setTimeout(() => preload.remove(), 250);
-    });
+    runApp(this);
   }
 }
