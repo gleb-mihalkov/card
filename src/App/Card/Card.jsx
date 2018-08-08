@@ -5,8 +5,7 @@ import './Card.scss';
 /**
  * Card component.
  */
-export default props => {
-  let {isLoading, centred, fullheight, children} = props;
+export default ({ isLoading, centred, fullheight, children }) => {
 
   let classes = classnames({
     'card': true,
