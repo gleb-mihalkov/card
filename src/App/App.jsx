@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Github from './Github/Github.jsx';
 import Menu from './Menu/Menu.jsx';
 import Flip from './Flip/Flip.jsx';
+import FlipReducer from './Flip/FlipReducer.jsx';
 import Home from '../Home/Home.jsx';
 import About from '../About/About.jsx';
 import Contacts from '../Contacts/Contacts.jsx';
@@ -174,6 +175,8 @@ export default class App extends React.Component {
    * @return {void}
    */
   static start() {
-    runApp(this);
+    runApp(this, {
+      flip: FlipReducer
+    });
   }
 }

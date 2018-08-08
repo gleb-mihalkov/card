@@ -1,12 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { HashRouter, Route } from 'react-router-dom';
+import { combineReducers, createStore } from 'redux';
+import { Provider as ReduxProvider } from 'react-redux';
 
-export default (App) => {
+export default (App, reducers = {}) => {
+  let store = createStore(combineReducers(reducers));
+
   let node = (
-    <HashRouter>
-      <Route path="/" component={App} />
-    </HashRouter>
+    <ReduxProvider store={store}>
+      <HashRouter>
+        <Route path="/" component={App} />
+      </HashRouter>
+    </ReduxProvider>
   );
 
   let rendered = new Promise(resolve => {
