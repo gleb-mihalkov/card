@@ -80,7 +80,7 @@ export default class App extends React.Component {
    * @param  {Object} next  Next model.
    * @return {void}
    */
-  onModels = (model, back, next) => {
+  setModels = (model, back, next) => {
     let base = this.getBaseLink(model);
 
     let backLink = back ? `${base}/${back.id}` : null;
@@ -110,7 +110,7 @@ export default class App extends React.Component {
       let Page = this.routes[path];
 
       let page = (props) => (
-        <Page onModels={this.onModels} {...props} />
+        <Page setModels={this.setModels} {...props} />
       );
 
       return (
