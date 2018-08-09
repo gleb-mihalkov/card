@@ -9,55 +9,48 @@ import Card from '../Card/Card.jsx';
 export default class Page extends React.Component {
 
   /**
-   * Creates the instance of container.
+   * Default state.
+   * @type {Object}
    */
-  constructor(...args) {
-    super(...args);
+  state = {
+    models: null
+  };
 
-    /**
-     * Default state.
-     * @type {Object}
-     */
-    this.state = {
-      models: null
-    };
+  /**
+   * True if container is mounted in DOM.
+   * @type {Boolean}
+   */
+  isAttached = false;
 
-    /**
-     * True if container is mounted in DOM.
-     * @type {Boolean}
-     */
-    this.isAttached = false;
+  /**
+   * Index of model in container.
+   * @type {Number}
+   */
+  index = -1;
 
-    /**
-     * Index of model in container.
-     * @type {Number}
-     */
-    this.index = -1;
+  /**
+   * Count of models in container.
+   * @type {Number}
+   */
+  count = -1;
 
-    /**
-     * Count of models in container.
-     * @type {Number}
-     */
-    this.count = -1;
+  /**
+   * Model for rendering.
+   * @type {Object}
+   */
+  model = null;
 
-    /**
-     * Model for rendering.
-     * @type {Object}
-     */
-    this.model = null;
+  /**
+   * Next model in container.
+   * @type {Object}
+   */
+  next = null;
 
-    /**
-     * Next model in container.
-     * @type {Object}
-     */
-    this.next = null;
-
-    /**
-     * Previous model in container.
-     * @type {Object}
-     */
-    this.prev = null;
-  }
+  /**
+   * Previous model in container.
+   * @type {Object}
+   */
+  prev = null;
 
   /**
    * Returns URL of API with models.
