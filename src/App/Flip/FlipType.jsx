@@ -1,3 +1,7 @@
+/**
+ * Flipping types.
+ * @type {String}
+ */
 export default {
   LEFT: 'left',
   RIGHT: 'right',
