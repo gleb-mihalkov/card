@@ -122,7 +122,7 @@ export default class App extends React.Component {
           </Flip>
         </div>
         <div className="app_aside">
-          <Menu back={backLink} next={nextLink} />
+          <Menu back={backLink} next={nextLink} location={location} />
         </div>
         <div className="app_aside app_aside-bottom">
           <Github />

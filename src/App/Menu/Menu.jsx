@@ -24,7 +24,8 @@ let flipTypes = [
  */
 let getProps = (state, props) => {
   return {
-    disabled: state.flipType != FlipType.NONE,
+    disabled: state.flip != FlipType.NONE,
+    location: props.location,
     back: props.back,
     next: props.next
   };
