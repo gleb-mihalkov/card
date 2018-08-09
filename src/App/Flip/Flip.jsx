@@ -16,7 +16,7 @@ export default class Flip extends React.Component {
    */
   onEnd = () => {
     let fn = this.props.onFlipEnd;
-    fn && fn.call(this, FlipType.NONE);
+    fn && fn(FlipType.NONE);
   }
 
   /**
