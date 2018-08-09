@@ -41,17 +41,12 @@ export default class Flip extends React.Component {
    * @return {*}
    */
   render() {
-    let {location, timeout, type, children} = this.props;
+    let { location, timeout, type, children } = this.props;
 
-    let classes = {
-      'flip': true
-    };
-
-    if (type) {
-      classes[`flip-${type}`] = true;
-    }
-
-    classes = classnames(classes);
+    let classes = classnames({
+      ['flip']: true,
+      [`flip-${type}`]: type
+    });
 
     let path = location.pathname;
     let end = this.onEnd;
