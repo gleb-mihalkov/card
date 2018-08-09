@@ -18,35 +18,26 @@ import './App.scss';
 export default class App extends React.Component {
 
   /**
-   * Creates the intstance of application.
+   * Default state.
+   * @type {Object}
    */
-  constructor(...args) {
-    super(...args);
+  state = {
+    backLink: null,
+    nextLink: null,
+    flipType: null
+  };
 
-    /**
-     * Default state.
-     * @type {Object}
-     */
-    this.state = {
-      backLink: null,
-      nextLink: null,
-      flipType: null
-    };
-
-    /**
-     * Collection of routes.
-     * @type {Object}
-     */
-    this.routes = {
-      '/projects/:id': Project,
-      '/projects': Project,
-      '/contacts': Contacts,
-      '/about': About,
-      '/': Home,
-    };
-
-    this.onModels = this.onModels.bind(this);
-  }
+  /**
+   * Collection of routes.
+   * @type {Object}
+   */
+  routes = {
+    '/projects/:id': Project,
+    '/projects': Project,
+    '/contacts': Contacts,
+    '/about': About,
+    '/': Home,
+  };
 
   /**
    * Returns true if component should be updated.
@@ -89,7 +80,7 @@ export default class App extends React.Component {
    * @param  {Object} next  Next model.
    * @return {void}
    */
-  onModels(model, back, next) {
+  onModels = (model, back, next) => {
     let base = this.getBaseLink(model);
 
     let backLink = back ? `${base}/${back.id}` : null;
