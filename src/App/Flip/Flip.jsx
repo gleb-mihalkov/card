@@ -1,7 +1,8 @@
 import React from 'react';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
-import {Switch} from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Switch } from 'react-router-dom';
 import classnames from 'classnames';
+import FlipType from './FlipType.jsx';
 import './Flip.scss';
 
 /**
@@ -10,30 +11,12 @@ import './Flip.scss';
 export default class Flip extends React.Component {
 
   /**
-   * Creates instance of class.
-   * @param {*} args Arguments.
-   */
-  constructor(...args) {
-    super(...args);
-
-    this.onEnd = this.onEnd.bind(this);
-  }
-
-  /**
-   * Sends flip state to parent component.
-   * @param  {Number} value Flip state.
-   * @return {void}
-   */
-  sendFlip(value) {
-    this.props.onFlipEnd && this.props.onFlipEnd.call(this, value);
-  }
-
-  /**
    * Handles ending of animation.
    * @return {void}
    */
-  onEnd() {
-    this.sendFlip(null);
+  onEnd = () => {
+    let fn = this.props.onFlipEnd;
+    fn && fn.call(this, FlipType.NONE);
   }
 
   /**
