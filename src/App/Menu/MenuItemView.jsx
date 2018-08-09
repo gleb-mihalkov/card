@@ -24,20 +24,7 @@ const nextIcon = (
 );
 
 /**
- * Returns true if link is current.
- * @param  {String}  link  Link.
- * @param  {String}  path  Location pathname.
- * @param  {Boolean} exact True if need to use the strict match of urls.
- * @return {Boolean}       True or false.
- */
-const isCurrent = (link, path, exact) => {
-  let value = exact && path === link || !exact && path.startsWith(link);
-  return value;
-};
-
-/**
  * Renders menu item.
- * @param  {Boolean}  exact    True if need to use strict match for urls.
  * @param  {String}   path     Current path in location.
  * @param  {Number}   index    Index of menu item in list.
  * @param  {String}   link     Link of item.
@@ -46,7 +33,7 @@ const isCurrent = (link, path, exact) => {
  * @param  {Function} onSelect Handler of click on item.
  * @return {*}                 React node.
  */
-export default ({ exact, path, index, link, text, disabled, onSelect }) => {
+export default ({ path, index, link, text, disabled, onSelect }) => {
   let count = Config.menu.length;
   let content = null;
 
@@ -66,7 +53,7 @@ export default ({ exact, path, index, link, text, disabled, onSelect }) => {
   }
 
   let select = (e) => {
-    let isPrevent = disabled || isCurrent(link, path, exact);
+    let isPrevent = disabled || link == path;
 
     if (isPrevent) {
       e.preventDefault();

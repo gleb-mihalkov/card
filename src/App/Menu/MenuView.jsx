@@ -31,7 +31,7 @@ export default ({ location, back, next, disabled, onSelect }) => {
     let text = item.text;
 
     return (
-      <MenuItemView exact={true} key={link} index={index} path={path} disabled={disabled} link={link} text={text} onSelect={onSelect} />
+      <MenuItemView key={link} index={index} path={path} disabled={disabled} link={link} text={text} onSelect={onSelect} />
     );
   });
 
